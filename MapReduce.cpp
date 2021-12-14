@@ -11,9 +11,6 @@ const vector<Core<T> *> MapReduce<T>::cores = {
 template<typename T>
 MapReduce<T>::MapReduce(vector<T> * values){
    this->values = values;
-   for(Core<T> * core : cores){
-      core->set(values);
-   }
 }
 
 template<typename T>
@@ -41,6 +38,7 @@ Core<T> * MapReduce<T>::chooseCore(){
    for(Core<T> * coreIt : cores){
       if(this->core->getDegradation() > coreIt->getDegradation())this->core = coreIt;
    }
+   this->core->set(values);
    return this->core;
 }
 

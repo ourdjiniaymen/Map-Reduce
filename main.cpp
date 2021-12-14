@@ -75,7 +75,7 @@ int main(int argc, char **argv)
     std::cout<< mri.chooseCore()<< std::endl;
 
     //4- Tester ma possibilité de faire core.map(...).map(...)
-    Core<int> core = mri.map(positive)->getCore()->map(gt50);
+    Core<int> & core = mri.map(positive)->getCore()->map(gt50);
     std::cout<<std::endl<< "####### test 4 #######"<<std::endl<<&core << std::endl;
 
     //5- Tester ma possibilité de faire mri.map(...)->map(...) puis reduce
